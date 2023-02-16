@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Board : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Board : MonoBehaviour
     public TetrominoData[] tetrominoes;
     public Vector3Int spawnPosition;
     public Vector2Int boardSize = new Vector2Int(10, 20);
-
+    //public GameOverScreen GameOverScreen;
     public RectInt Bounds
     {
         get
@@ -52,6 +53,8 @@ public class Board : MonoBehaviour
     private void GameOver()
     {
         this.tilemap.ClearAllTiles();
+        //GameOverScreen.Setup();
+        SceneManager.LoadScene("GameOver");
     }
 
     public void Set(Piece piece)
